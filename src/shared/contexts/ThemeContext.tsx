@@ -2,12 +2,9 @@ import { createContext, useContext, useCallback, useMemo, useState } from "react
 import { ThemeProvider, Box } from '@mui/material'
 import { DarkTheme } from '../../shared/themes/Dark'
 import { LightTheme } from '../../shared/themes/Light'
-
-
 interface IThemeContextData {
     themeName: 'light' | 'dark';
     toggleTheme: () => void;
-
 }
 
 const ThemeContext = createContext({} as IThemeContextData)
@@ -15,8 +12,6 @@ const ThemeContext = createContext({} as IThemeContextData)
 export const useAppThemeContext = () => {
     return useContext(ThemeContext)
 }
-
-
 interface IAppThemeProvider {
     children: React.ReactNode
 }
