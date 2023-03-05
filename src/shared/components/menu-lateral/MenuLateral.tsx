@@ -10,11 +10,10 @@ import {
 
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/Inbox';
 
 import { Box } from "@mui/system"
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useDrawerContext } from "../../contexts";
+import { useAppThemeContext, useDrawerContext } from "../../contexts";
 
 import { useNavigate, useResolvedPath, useMatch } from "react-router-dom";
 
@@ -60,6 +59,7 @@ export const MenuLateral: React.FC<IMenuLateral> = ({ children }) => {
     const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
     const { isDrawerOpen, toggleDrawerOpen, drawerOption } = useDrawerContext()
+    const { toggleTheme } = useAppThemeContext()
 
     return (
         <>
@@ -91,6 +91,16 @@ export const MenuLateral: React.FC<IMenuLateral> = ({ children }) => {
                                     >
                                     </ListItemLink>
                                 ))}
+                        </List>
+                    </Box>
+                    <Box>
+                        <List component="nav">
+                            <ListItemButton onClick={toggleTheme}>
+                                <ListItemIcon>
+                                    <Icon>dark_mode</Icon>
+                                </ListItemIcon>
+                                <ListItemText primary="Alternar tema" />
+                            </ListItemButton>
                         </List>
                     </Box>
                 </Box>
